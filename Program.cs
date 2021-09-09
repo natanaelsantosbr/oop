@@ -24,6 +24,9 @@ namespace Payments
             var pagamentoBoleto = new PagamentoBoleto();
             pagamentoBoleto.NumeroBoleto = "123";
 
+            var pagamento = new Pagamento();
+            pagamento.ToString();
+
             Console.WriteLine("Hello World!");
         }
 
@@ -42,6 +45,14 @@ namespace Payments
             3. Herança
             Capacidade de um objeto herdar uma propriedade, metodo e evento de outro objeto.
 
+            4. Polimorfismo
+            Pode ter n forma (metodo) virtual
+            Permiti que o metodo seja sobrescrito
+            virtual no pai
+            override no filho
+
+            
+
         */
         class Pagamento
         {
@@ -49,17 +60,33 @@ namespace Payments
             public DateTime Vencimento;
 
             //Metodos (Funções que o metodo tem)
-            public void Pagar() { }
+            public virtual void Pagar() { }
+
+            //Por padrão toda carga herda do System
+            public override string ToString()
+            {
+                return Vencimento.ToLongDateString();
+            }
         }
 
         class PagamentoBoleto : Pagamento
         {
             public string NumeroBoleto;
+
+            public override void Pagar()
+            {
+                //Regra do Boleto
+            }
         }
 
         class PagamentoCartaoDeCredito : Pagamento
         {
             public string Numero;
+
+            public override void Pagar()
+            {
+                //Regra do Cartao do Credito
+            }
         }
 
         //Nao tem heranca Multipla
