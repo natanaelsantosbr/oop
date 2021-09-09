@@ -26,8 +26,16 @@ namespace Payments
         }
 
         /*
+            1. Paradigma
             Encapsulamento
-            Agrupar o que faz sentido esta junto                        
+            Agrupar o que faz sentido esta junto           
+
+
+            2. Paradigma        
+            Abstração
+            Esconde os detalhes, esconde tudo aquilo que não precisa saber     
+            Interuptor de energia, Concessionaria
+            Expor apenas o necessário
         */
         class Pagamento
         {
@@ -35,8 +43,16 @@ namespace Payments
             DateTime Vencimento;
 
             //Metodos (Funções que o metodo tem)
-            void Pagar(){}            
+            void Pagar()
+            {
+                this.ConsultarSaldoDoCartao();
+            }            
 
-        }
+
+            //Abstraido. Acontece apenas na classe de Pagamento. Nenhuma outra classe precisa saber desse detalhe
+            private void ConsultarSaldoDoCartao(){
+
+            }
+                    }
     }
 }
