@@ -28,24 +28,23 @@ namespace Payments
             pagamento.ToString();
 
             Console.WriteLine("Hello World!");
+
         }
 
         /*
-            1. Paradigma
             Encapsulamento
             Agrupar o que faz sentido esta junto           
 
 
-            2. Paradigma        
             Abstração
             Esconde os detalhes, esconde tudo aquilo que não precisa saber     
             Interuptor de energia, Concessionaria
             Expor apenas o necessário
 
-            3. Herança
+            Herança
             Capacidade de um objeto herdar uma propriedade, metodo e evento de outro objeto.
 
-            4. Polimorfismo
+            Polimorfismo
             Pode ter n forma (metodo) virtual
             Permiti que o metodo seja sobrescrito
             virtual no pai
@@ -59,7 +58,7 @@ namespace Payments
             //Propriedades  (Caractereisticas que o metodo tem)
             public DateTime Vencimento;
 
-            //Metodos (Funções que o metodo tem)
+            //Metodos (Funções que o metodo tem) Polimorfismo (Pai)
             public virtual void Pagar() { }
 
             //Por padrão toda carga herda do System
@@ -73,6 +72,7 @@ namespace Payments
         {
             public string NumeroBoleto;
 
+            //Polimorfismo Filho
             public override void Pagar()
             {
                 //Regra do Boleto
@@ -83,9 +83,20 @@ namespace Payments
         {
             public string Numero;
 
+            //Polimorfismo
             public override void Pagar()
             {
+                //Abstração
+                this.VerificarAlgumaCoisaApenasDessaClasse();
+
                 //Regra do Cartao do Credito
+
+            }
+
+            //Abstração
+            private bool VerificarAlgumaCoisaApenasDessaClasse()
+            {
+                return true;
             }
         }
 
