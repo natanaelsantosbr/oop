@@ -21,6 +21,8 @@ namespace Payments
             - Pegar um projeto grande e dividi em pequenas partes
             */
 
+            var pagamentoBoleto = new PagamentoBoleto();
+            pagamentoBoleto.NumeroBoleto = "123";
 
             Console.WriteLine("Hello World!");
         }
@@ -36,23 +38,34 @@ namespace Payments
             Esconde os detalhes, esconde tudo aquilo que não precisa saber     
             Interuptor de energia, Concessionaria
             Expor apenas o necessário
+
+            3. Herança
+            Capacidade de um objeto herdar uma propriedade, metodo e evento de outro objeto.
+
         */
         class Pagamento
         {
             //Propriedades  (Caractereisticas que o metodo tem)
-            DateTime Vencimento;
+            public DateTime Vencimento;
 
             //Metodos (Funções que o metodo tem)
-            void Pagar()
-            {
-                this.ConsultarSaldoDoCartao();
-            }            
+            public void Pagar() { }
+        }
 
+        class PagamentoBoleto : Pagamento
+        {
+            public string NumeroBoleto;
+        }
 
-            //Abstraido. Acontece apenas na classe de Pagamento. Nenhuma outra classe precisa saber desse detalhe
-            private void ConsultarSaldoDoCartao(){
+        class PagamentoCartaoDeCredito : Pagamento
+        {
+            public string Numero;
+        }
 
-            }
-                    }
+        //Nao tem heranca Multipla
+        /*class PagamentoCartaoDeCredito : Pagamento, PagamentoBoleto
+        {
+            public string Numero;
+        }*/
     }
 }
