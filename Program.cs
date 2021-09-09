@@ -53,6 +53,13 @@ namespace Payments
             
 
         */
+
+        /*
+        private = fica restrito a classe  
+        protected = escopo da classe + classe filha (heranca)
+        internal = fica disponivel no mesmo namespace
+        public = fica visivel para um todo
+        */
         class Pagamento
         {
             //Propriedades  (Caractereisticas que o metodo tem)
