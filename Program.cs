@@ -60,10 +60,12 @@ namespace Payments
         internal = fica disponivel no mesmo namespace
         public = fica visivel para um todo
         */
-        class Pagamento
+        public class Pagamento
         {
             //Propriedades  (Caractereisticas que o metodo tem)
             public DateTime Vencimento;
+
+            public Address BillingAddress { get; set; }
 
             //Metodos (Funções que o metodo tem) Polimorfismo (Pai)
             public virtual void Pagar() { }
@@ -75,6 +77,11 @@ namespace Payments
             }
         }
 
+        public class Address
+        {
+            public string ZipCode { get; set; }
+
+        }
         class PagamentoBoleto : Pagamento
         {
             public string NumeroBoleto;
