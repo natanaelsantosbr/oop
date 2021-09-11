@@ -193,5 +193,22 @@ namespace Payments
         {
             public static string API_URL { get; set; }
         }
+
+        /*
+         Classes seladas = Inibi alguem de estender ela, herdar ela
+         Garantir apenas uma forma
+         Nao pode ter outras versões
+         Tirar a herança
+        */
+
+        public sealed class PagamentoSelada
+        {
+            public DateTime Vencimento { get; private set; }
+        }
+
+        // public class Pagamento2 : PagamentoSelada
+        // {
+
+        // }
     }
 }
