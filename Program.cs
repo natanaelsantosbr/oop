@@ -185,5 +185,13 @@ namespace Payments
         {
             public string Numero;
         }*/
+
+        /*
+            Sempre a mesma informação para todos os usuarios
+        */
+        public static class Settings
+        {
+            public static string API_URL { get; set; }
+        }
     }
 }
