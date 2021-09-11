@@ -62,7 +62,26 @@ namespace Payments
         */
         public class Pagamento
         {
-            //Propriedades  (Caractereisticas que o metodo tem)
+            /*
+            prop
+            propfull
+            propg
+            */
+
+            private DateTime _dataPagamento;
+            public DateTime DataPagamento
+            {
+                /*
+
+                */
+                get { return _dataPagamento; }
+                set { _dataPagamento = value; }
+            }
+
+            /*
+            
+            */
+
             public DateTime Vencimento;
 
             public Address BillingAddress { get; set; }
