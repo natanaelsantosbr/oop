@@ -62,6 +62,12 @@ namespace Payments
         */
         public class Pagamento
         {
+
+            public Pagamento(DateTime vencimento)
+            {
+                this.Vencimento = vencimento;
+            }
+
             /*
             prop
             propfull
@@ -87,6 +93,13 @@ namespace Payments
             public Address BillingAddress { get; set; }
 
             //Metodos (Funções que o metodo tem) Polimorfismo (Pai)
+
+
+            /*Sobrescarga de metodo. Assinatura do metodo e parametros diferentes*/
+            public void Pagar(string numero) { }
+            public void Pagar(string numero, DateTime vencimento) { }
+
+            /*Sobreescrita do metodo (virtual).Reescrita do método */
             public virtual void Pagar() { }
 
             //Por padrão toda carga herda do System
@@ -105,16 +118,25 @@ namespace Payments
         {
             public string NumeroBoleto;
 
+            public PagamentoBoleto(DateTime vencimento) : base(vencimento)
+            {
+            }
+
             //Polimorfismo Filho
             public override void Pagar()
             {
+                base.Pagar();
                 //Regra do Boleto
             }
         }
 
-        class PagamentoCartaoDeCredito : Pagamento
+        public class PagamentoCartaoDeCredito : Pagamento
         {
             public string Numero;
+
+            public PagamentoCartaoDeCredito(DateTime vencimento) : base(vencimento)
+            {
+            }
 
             //Polimorfismo
             public override void Pagar()
