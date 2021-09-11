@@ -21,13 +21,20 @@ namespace Payments
             - Pegar um projeto grande e dividi em pequenas partes
             */
 
-            var pagamentoBoleto = new PagamentoBoleto();
+            var pagamentoBoleto = new PagamentoBoleto(DateTime.Now);
             pagamentoBoleto.NumeroBoleto = "123";
 
-            var pagamento = new Pagamento();
-            pagamento.ToString();
+            /*Dispose*/
+            // var pagamento = new Pagamento();
+            // pagamento.ToString();
+            // pagamento.Dispose();
 
-            Console.WriteLine("Hello World!");
+            using (var pagamento2 = new Pagamento())
+            {
+                System.Console.WriteLine("Processando pagamento");
+            }
+
+
 
         }
 
@@ -60,8 +67,21 @@ namespace Payments
         internal = fica disponivel no mesmo namespace
         public = fica visivel para um todo
         */
-        public class Pagamento
+        public class Pagamento : IDisposable
         {
+
+            //Garbage Collector - Coletor de lixo
+            /*
+            Olha para a memoria e tudo aquilo que não esta sendo utilizado e retirado
+            Tudo que for colocado como null eh retirado tbm
+            GC.Colletor = Não é legal chamar ele.
+            */
+
+            public Pagamento()
+            {
+                System.Console.WriteLine("Iniciando Pagamento");
+            }
+
 
             public Pagamento(DateTime vencimento)
             {
@@ -106,6 +126,11 @@ namespace Payments
             public override string ToString()
             {
                 return Vencimento.ToLongDateString();
+            }
+
+            public void Dispose()
+            {
+                System.Console.WriteLine("Finalizando projeto");
             }
         }
 
