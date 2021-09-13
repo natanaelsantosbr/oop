@@ -234,17 +234,39 @@ namespace Payments
             }
         }
 
-
-
-        public class Payment : IPayment
+        /*Essa classe não pode ser instanciada, ela so pode ser herdada*/
+        public abstract class Pagament : IPayment
         {
             public DateTime Vencimento { get; set; }
 
-            public void Pagar(double valor)
+            public virtual void Pagar(double valor)
             {
 
             }
         }
 
+        public class PagarCartaoDeCredito : Pagament
+        {
+            public override void Pagar(double valor)
+            {
+                base.Pagar(valor);
+            }
+        }
+
+        public class PagarBoleto : Pagament
+        {
+            public override void Pagar(double valor)
+            {
+                base.Pagar(valor);
+            }
+        }
+
+        public class PagarPix : Pagament
+        {
+            public override void Pagar(double valor)
+            {
+                base.Pagar(valor);
+            }
+        }
     }
 }
