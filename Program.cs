@@ -38,7 +38,42 @@ namespace Payments
             var payment = new Payment();
             payment.PropriedadeA = 1;
             payment.PropriedadeB = 2;
+
+
+            //Upcast (Filho para o Pai)
+            var pessoa = new Pessoa();
+            pessoa = new PessoaFisica();
+            pessoa = new PessoaJuridica();
+
+            //DownCast
+            var pessoaFisica = new PessoaFisica();
+            var pessoaJuridica = new PessoaJuridica();
+
+
+            pessoaFisica = (PessoaFisica)pessoa;
+
+
+
         }
+
+        /*Classe Pai, Raiz*/
+        public class Pessoa
+        {
+            public string Nome { get; set; }
+        }
+
+        /*Classes Filha*/
+        public class PessoaFisica : Pessoa
+        {
+            public string CPF { get; set; }
+        }
+
+        public class PessoaJuridica : Pessoa
+        {
+            public string CNPJ { get; set; }
+
+        }
+
 
         /*
             Encapsulamento
