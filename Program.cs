@@ -34,8 +34,10 @@ namespace Payments
                 System.Console.WriteLine("Processando pagamento");
             }
 
-
-
+            /*Partial Class*/
+            var payment = new Payment();
+            payment.PropriedadeA = 1;
+            payment.PropriedadeB = 2;
         }
 
         /*
