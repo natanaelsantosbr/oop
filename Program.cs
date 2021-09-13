@@ -212,5 +212,39 @@ namespace Payments
         // {
 
         // }
+
+
+        /*
+        Contrato = Conjunto de regras que ambas partes devem realizar
+        OOP = Interface = Como uma classe deve ser
+        Contrato = Como fazer o que precisar fazer
+        */
+
+        public interface IPayment
+        {
+            DateTime Vencimento { get; set; }
+
+            void Pagar(double valor);
+
+
+            /*C# permiti implementação na interface*/
+            void Pagar2()
+            {
+
+            }
+        }
+
+
+
+        public class Payment : IPayment
+        {
+            public DateTime Vencimento { get; set; }
+
+            public void Pagar(double valor)
+            {
+
+            }
+        }
+
     }
 }
