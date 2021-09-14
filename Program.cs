@@ -71,7 +71,62 @@ namespace Payments
             //Delegar pra qualquer outra classe
             var pag = new Pagar.Paga(RealizarPagamento);
             pag(25);
+
+
+            var sala = new Sala(3);
+            sala.EventoQueASalaEstaLotadaEvent += OnQuandoAMinhaSalaEncher;
+            sala.ReservarAssento();
+            sala.ReservarAssento();
+            sala.ReservarAssento();
+            sala.ReservarAssento();
+            sala.ReservarAssento();
+            sala.ReservarAssento();
+            sala.ReservarAssento();
         }
+
+        static void OnQuandoAMinhaSalaEncher(object sender, EventArgs e)
+        {
+            System.Console.WriteLine("Sala lotada");
+        }
+
+        public class Sala
+        {
+            public Sala(int assentos)
+            {
+                this.Assentos = assentos;
+                this.AssentosEmUso = 0;
+            }
+
+            private int AssentosEmUso = 0;
+            public int Assentos { get; set; }
+
+            public void ReservarAssento()
+            {
+                this.AssentosEmUso++;
+
+                if (this.AssentosEmUso >= this.Assentos)
+                {
+                    OnSalaFicarIndisponivel(EventArgs.Empty);
+                }
+                else
+                {
+                    System.Console.WriteLine("Assento reservado");
+                }
+            }
+
+            //Declarar um evento
+
+            public event EventHandler EventoQueASalaEstaLotadaEvent;
+
+            //Metodo que executa o evento
+            protected virtual void OnSalaFicarIndisponivel(EventArgs e)
+            {
+                EventHandler handler = EventoQueASalaEstaLotadaEvent;
+                handler?.Invoke(this, e);
+            }
+
+        }
+
 
         static void RealizarPagamento(double valor)
         {
