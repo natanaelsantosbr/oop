@@ -40,26 +40,54 @@ namespace Payments
             payment.PropriedadeB = 2;
 
 
-            //Upcast (Filho para o Pai)
-            var pessoa = new Pessoa();
-            pessoa = new PessoaFisica();
-            pessoa = new PessoaJuridica();
+            // //Upcast (Filho para o Pai)
+            // var pessoa = new Pessoa();
+            // pessoa = new PessoaFisica();
+            // pessoa = new PessoaJuridica();
 
-            //DownCast
-            var pessoaFisica = new PessoaFisica();
-            var pessoaJuridica = new PessoaJuridica();
-
-
-            pessoaFisica = (PessoaFisica)pessoa;
+            // //DownCast
+            // var pessoaFisica = new PessoaFisica();
+            // var pessoaJuridica = new PessoaJuridica();
 
 
+            // pessoaFisica = (PessoaFisica)pessoa;
+
+            var pessoaA = new Pessoa(1, "Natanael");
+            var pessoaB = new Pessoa(1, "Natanael");
+
+            /*
+            Pq é diferente ? Pq eh um tipo de referencia, não guarda os dados
+            */
+            System.Console.WriteLine(pessoaA == pessoaB);
+
+
+            System.Console.WriteLine(pessoaA.Equals(pessoaB));
 
         }
 
         /*Classe Pai, Raiz*/
-        public class Pessoa
+
+        public class Pessoa : IEquatable<Pessoa>
         {
+
+            public Pessoa()
+            {
+
+            }
+
+            public Pessoa(int id, string nome)
+            {
+                this.Id = id;
+                this.Nome = nome;
+            }
+            public int Id { get; set; }
             public string Nome { get; set; }
+
+            /*Comparando objetos*/
+            public bool Equals(Pessoa other)
+            {
+                return this.Id == other.Id;
+            }
         }
 
         /*Classes Filha*/
@@ -94,7 +122,7 @@ namespace Payments
             virtual no pai
             override no filho
 
-            
+
 
         */
 
@@ -142,7 +170,7 @@ namespace Payments
             }
 
             /*
-            
+
             */
 
             public DateTime Vencimento;
