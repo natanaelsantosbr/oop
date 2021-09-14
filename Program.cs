@@ -4,6 +4,9 @@ namespace Payments
 {
     class Program
     {
+
+
+
         static void Main(string[] args)
         {
             /*
@@ -59,11 +62,27 @@ namespace Payments
             Pq é diferente ? Pq eh um tipo de referencia, não guarda os dados
             */
             System.Console.WriteLine(pessoaA == pessoaB);
-
-
             System.Console.WriteLine(pessoaA.Equals(pessoaB));
 
+
+            //Delegates => Metodos Anonimos             / Estou delegando essa função
+            //Tem quer ter a mesma assinatura
+            //Uma função que chama outra função
+            //Delegar pra qualquer outra classe
+            var pag = new Pagar.Paga(RealizarPagamento);
+            pag(25);
         }
+
+        static void RealizarPagamento(double valor)
+        {
+            System.Console.WriteLine($"Pago o valor de {valor}");
+        }
+
+        public class Pagar
+        {
+            public delegate void Paga(double valor);
+        }
+
 
         /*Classe Pai, Raiz*/
 
