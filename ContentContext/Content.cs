@@ -1,8 +1,15 @@
+using System;
+
 namespace Balta.ContentContext
 {
-    public class Content
+    public abstract class Content
     {
-        public int Id { get; set; }
+        public Content()
+        {
+            this.Id = Guid.NewGuid(); //SPOF - Menos pontos de falha
+        }
+
+        public Guid Id { get; set; }
 
         public string Title { get; set; }
 
