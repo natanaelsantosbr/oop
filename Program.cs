@@ -87,7 +87,7 @@ namespace Payments
             var person = new Pessoas();
             var pagamentoo = new Pagamentoo();
             var assinatura = new Assinaturaa();
-            var context = new DataContext<Pessoas, Pagamentoo, Assinaturaa>();
+            var context = new DataContext<IPessoa, Pagamentoo, Assinaturaa>();
             context.Save(person);
             context.Save(pagamentoo);
             context.Save(assinatura);
@@ -97,26 +97,31 @@ namespace Payments
 
         /*Uma classe generica. O que isso signifca ?
                     Que eu posso salvar uma pessoa, pagamento, assinatura*/
-        public class DataContext<T, U, V>
+        public class DataContext<P, PA, A>
+        where P : IPessoa
+        where PA : Pagamentoo
+        where A : Assinaturaa
         {
 
-            public void Save(T entidade)
+            public void Save(P entidade)
             {
 
             }
 
-            public void Save(U entidade)
+            public void Save(PA entidade)
             {
 
             }
 
-            public void Save(V entidade)
+            public void Save(A entidade)
             {
 
             }
         }
 
-        public class Pessoas { }
+        public interface IPessoa { }
+
+        public class Pessoas : IPessoa { }
         public class Pagamentoo { }
         public class Assinaturaa { }
 
