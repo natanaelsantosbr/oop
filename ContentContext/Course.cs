@@ -14,25 +14,8 @@ namespace Balta.ContentContext
         public IList<Module> Modules { get; set; }
     }
 
-    public class Module
-    {
-        public Module()
-        {
-            this.Lectures = new List<Lecture>();
-        }
 
-        public int Order { get; set; }
-
-        public string Title { get; set; }
-
-        public IList<Lecture> Lectures { get; set; }
-    }
 
     //Aula
-    public class Lecture
-    {
-        public int Order { get; set; }
 
-        public string Title { get; set; }
-    }
 }
