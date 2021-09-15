@@ -1,7 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+
 namespace Balta.ContentContext
 {
     public class Career : Content
     {
-        public int Courses { get; set; }
+        public Career()
+        {
+            this.Items = new List<CarrerItem>();
+
+        }
+        public IList<CarrerItem> Items { get; set; }
+
+        //Expression Body
+        public int TotalCourses => this.Items.Count;
+
     }
 }
