@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Payments
 {
@@ -92,8 +93,30 @@ namespace Payments
             context.Save(pagamentoo);
             context.Save(assinatura);
 
+            /*
+            IList = Ela ta no topo, tem mais metodo, mais manipulação. Implementa o ICollection IEnumerable, IList
+            ICollection = 
+            IEnumerable = 
+            */
+
+            //Praticamente uma lista de leitura . mais basicos
+            IEnumerable<Paymentt> payments1 = new List<Paymentt>();
+
+            //Tem mais metodos = Crud
+            IList<Paymentt> payments2 = new List<Paymentt>();
+
+
+
+
+
+
+
+
+            var payments = new List<Paymentt>();
+
         }
 
+        public class Paymentt { }
 
         /*Uma classe generica. O que isso signifca ?
                     Que eu posso salvar uma pessoa, pagamento, assinatura*/
