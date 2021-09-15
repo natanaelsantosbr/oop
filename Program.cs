@@ -82,7 +82,44 @@ namespace Payments
             sala.ReservarAssento();
             sala.ReservarAssento();
             sala.ReservarAssento();
+
+
+            var person = new Pessoas();
+            var pagamentoo = new Pagamentoo();
+            var assinatura = new Assinaturaa();
+            var context = new DataContext<Pessoas, Pagamentoo, Assinaturaa>();
+            context.Save(person);
+            context.Save(pagamentoo);
+            context.Save(assinatura);
+
         }
+
+
+        /*Uma classe generica. O que isso signifca ?
+                    Que eu posso salvar uma pessoa, pagamento, assinatura*/
+        public class DataContext<T, U, V>
+        {
+
+            public void Save(T entidade)
+            {
+
+            }
+
+            public void Save(U entidade)
+            {
+
+            }
+
+            public void Save(V entidade)
+            {
+
+            }
+        }
+
+        public class Pessoas { }
+        public class Pagamentoo { }
+        public class Assinaturaa { }
+
 
         static void OnQuandoAMinhaSalaEncher(object sender, EventArgs e)
         {
