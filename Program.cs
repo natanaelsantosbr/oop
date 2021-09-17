@@ -33,9 +33,9 @@ namespace Payments
             var careers = new List<Career>();
 
             var careerDotnet = new Career("Especialista .NET", "especialista-dotnet");
-            var careerItem = new CarrerItem(2, "OOP", "", null);
-            var careerItem2 = new CarrerItem(1, "Comece por aqui", "", null);
-            var careerItem3 = new CarrerItem(3, "C#", "", null);
+            var careerItem = new CarrerItem(2, "OOP", "", courseOOP);
+            var careerItem2 = new CarrerItem(1, "Comece por aqui", "", courseCsharp);
+            var careerItem3 = new CarrerItem(3, "C#", "", courseAspNet);
             careerDotnet.Items.Add(careerItem);
             careerDotnet.Items.Add(careerItem2);
             careerDotnet.Items.Add(careerItem3);
@@ -48,6 +48,7 @@ namespace Payments
                 foreach (var item in career.Items.OrderBy(x => x.Order).ToList())
                 {
                     System.Console.WriteLine($"{item.Order} - {item.Title}");
+                    System.Console.WriteLine($"{item.Course.Title}");
                 }
             }
 
