@@ -41,6 +41,8 @@ namespace Payments
             careerDotnet.Items.Add(careerItem3);
             careers.Add(careerDotnet);
 
+
+
             foreach (var career in careers)
             {
                 System.Console.WriteLine(career.Title);
