@@ -1,4 +1,5 @@
 using System;
+using Balta.SharedContext;
 
 namespace Balta.ContentContext
 {
@@ -9,8 +10,6 @@ namespace Balta.ContentContext
             this.Title = title;
             this.Url = url;
         }
-
-
 
         public string Title { get; set; }
 
